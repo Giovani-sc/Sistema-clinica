@@ -1,0 +1,90 @@
+            !!!!ATENÇÃO!!!!
+NÃO MEXA NAS PASTAS DO BACK-END SEM LER ISSO
+
+Para o Back-End funcionar é nescessário baixar a extensão "Spring Boot Extension
+Pack" do VScode
+
+ESPECIFICAÇOES DO SPRING BOOT:
+Java version: 17
+Packaging Type: Jar
+Group Id: com.clinicavet
+Artifact Id: clinica
+Package Name: com.clinicavet.clinica
+
+DEPENDÊNCIAS:
+Spring Web
+Spring Data JPA
+MySQL Driver
+Lombok
+
+FUNÇÕES DE CADA DEPENDÊNCIA:
+
+Spring Web
+Responsável pela criação do backend e APIs.
+
+---------------------------------------------------
+Spring Data JPA
+Responsável pela comunicação entre Java e banco de dados.
+
+---------------------------------------------------
+MySQL Driver
+Permite conexão do sistema com o MySQL.
+
+---------------------------------------------------
+Lombok
+Reduz código repetitivo em classes Java.
+
+     
+      !!!!ATENÇÃO!!!!
+NÃO MEXA NAS PASTAS DO BACK-END SEM LER ISSO
+
+📁 .mvn/
+
+Essa é a pasta interna do Maven. Ela ajuda o projeto a baixar as dependências, compilar e rodar o Spring Boot,
+você normalmente NÃO mexe nela.
+
+📁 .vscode/
+
+São as configurações do Visual Studio Code.
+
+Guarda as preferências, extensões e configurações do projeto, também quase nunca precisa mexer.
+
+📁 src/
+
+Essa é pasta MAIS IMPORTANTE do projeto, é onde vai ficar o código Java, as configurações e testes.
+
+📁 src/main/
+
+É onde vai ficar o código principal do sistema.
+
+📁 src/main/java/
+
+Aqui fica TODO o backend Java.
+
+📁 src/test/
+
+Área de testes do projeto, vai se usado para fazer testes automáticos e a validação do sistema.
+
+📄 .gitattributes
+
+Configurações do Git/GitHub.
+
+📄 .gitignore
+
+Vai definir quais arquivos NÃO vão ir pro GitHub.
+
+📄 HELP.md
+
+Arquivo do Spring Boot com ajuda/documentação.
+
+📄 mvnw
+
+Script do Maven para Linux/Mac.
+
+📄 mvnw.cmd
+
+Script do Maven para Windons, os dois permitem o Maven rodar mesmo sem instalar globalmente.
+
+📄 pom.xml
+
+Ele controla as dependências, versão do Java, Spring Boot, bibliotecas do projeto.
