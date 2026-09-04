@@ -1,0 +1,114 @@
+1. Instalar o MySQL
+
+Primeiro, é necessário ter o **MySQL Server** instalado no computador.
+
+Durante a instalação, será definido um usuário e uma senha para acessar o MySQL.
+
+O usuário utilizado no projeto normalmente será:
+
+`root`
+
+A senha deve ser a senha que cada integrante definiu no próprio computador.
+
+cada pessoa pode ter uma senha diferente. Não coloque a senha no GitHub.
+
+---
+
+2. Instalar as extensões do VS Code
+
+No VS Code, instalar estas duas extensões:
+
+* SQLTools
+* SQLTools MySQL/MariaDB/TiDB
+
+A primeira permite trabalhar com bancos de dados pelo VS Code.
+
+A segunda permite que o SQLTools se conecte ao MySQL.
+
+---
+
+
+3. Configurar a conexão do SQLTools
+
+No VS Code, abrir o SQLTools e escolher a opção para adicionar uma nova conexão.
+
+Selecionar o driver:
+
+MySQL/MariaDB
+
+Preencher os dados:
+
+**Host:** `127.0.0.1`
+
+**Port:** `3306`
+
+**Username:** `root`
+
+**Password:** a senha do MySQL que foi definida durante a instalação.
+
+**Database:** deixar vazio inicialmente.
+
+Dar um nome para a conexão, por exemplo:
+
+`MySQL Clinivet`
+
+Depois, salvar a conexão.
+
+---
+
+4. Criar o banco
+
+Abrir o arquivo:
+
+`banco/banco.sql`
+
+O arquivo terá comandos parecidos com:
+
+`CREATE DATABASE Clinivet;`
+
+Esse arquivo é responsável por criar o banco e suas tabelas.
+
+Depois de configurar a conexão, executar o arquivo pelo SQLTools.
+
+Quando o código for executado, o MySQL criará o banco de dados no computador.
+
+---
+
+
+4. Depois de criar o banco
+
+Depois que o banco for criado, ele continuará existindo no computador mesmo que o VS Code seja fechado.
+
+O banco só será removido se alguém apagá-lo, por exemplo, utilizando:
+
+`DROP DATABASE Clinivet;`
+
+Portanto, normalmente não será necessário executar o `CREATE DATABASE` toda vez que o projeto for aberto.
+
+---
+
+5. Configuração do Java
+
+A conexão do **Java com o MySQL** será configurada separadamente.
+
+O Java utilizará o **MySQL Connector/J (JDBC)** para conseguir conversar com o banco.
+
+Essa configuração será feita no projeto Java através do Maven e da classe responsável pela conexão.
+
+> Essa etapa só é necessária quando começarmos a integrar o banco com o código Java.
+
+---
+
+Resumindo
+
+Cada integrante deverá:
+
+1. Instalar o **MySQL Server**.
+2. Clonar o projeto do GitHub.
+3. Instalar **SQLTools** no VS Code.
+4. Instalar **SQLTools MySQL/MariaDB/TiDB**.
+5. Configurar a conexão usando `127.0.0.1`, porta `3306`, usuário `root` e sua própria senha.
+6. Abrir `banco/banco.sql`.
+7. Executar o arquivo pelo SQLTools.
+8. O banco **Clinivet** será criado no MySQL.
+9. Depois, configurar a conexão do Java com o MySQL usando JDBC.
