@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Lista de Clientes</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar Lateral -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="clinica.png" alt="ClíníVet Logo" class="sidebar-logo">
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="painel.html" class="nav-item">📊 Painel da Clínica</a>
+      <a href="clientes.html" class="nav-item active">👥 Clientes</a>
+      <a href="#" class="nav-item">🧑‍⚕️ Funcionários</a>
+      <a href="#" class="nav-item">📅 Consultas</a>
+      <a href="#" class="nav-item">🧪 Exames</a>
+      <a href="#" class="nav-item">💰 Financeiro</a>
+      <a href="#" class="nav-item">📑 Relatórios</a>
+      <a href="#" class="nav-item">⚙️ Configurações</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="index.html" class="nav-item logout">🚪 Sair</a>
+    </div>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="main-content">
+    
+    <header class="dashboard-header">
+      <div>
+        <h1>Clientes Cadastrados</h1>
+        <p class="subtitle">Gerencie as informações dos tutores e seus pets</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="notification-container">
+          <div class="notification-badge" onclick="toggleNotifications()">
+            🔔<span class="count">3</span>
+          </div>
+          <div class="notification-dropdown hidden" id="notificationMenu">
+            <div class="dropdown-header">
+              <strong>Notificações</strong>
+              <span class="mark-read">Marcar como lidas</span>
+            </div>
+            <ul class="dropdown-list">
+              <li class="unread">
+                <div>
+                  <p><strong>Vacina pendente:</strong> Thor</p>
+                  <small>Há 15 minutos</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="user-profile">
+          <div class="avatar">V</div>
+          <div class="user-info">
+            <span class="user-name">Veterinário</span>
+            <span class="user-role">Administrador</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Barra Superior de Controle -->
+    <div class="table-controls-bar">
+      <div class="search-box">
+        <input type="text" id="searchClient" placeholder="Buscar por Nome, CPF ou Telefone...">
+        <span class="search-btn-icon">🔍</span>
+      </div>
+
+      <a href="novo-cliente.html" class="btn-novo-cliente">+ Novo Cliente</a>
+    </div>
+
+    <!-- Tabela de Clientes -->
+    <div class="table-card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Nome Completo</th>
+            <th>CPF</th>
+            <th>Contato</th>
+            <th>Cidade/UF</th>
+            <th>Pets Associados</th>
+            <th style="text-align: center;">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="clientTableBody">
+          <tr>
+            <td class="font-bold">Ana Silva Sauro</td>
+            <td>123.456.789-00</td>
+            <td>(11) 98765-4321</td>
+            <td>São Paulo / SP</td>
+            <td><span class="pet-badge">🐾 Thor (Cão)</span></td>
+            <td class="actions-cell">
+              <button class="btn-action edit" title="Editar">✏️</button>
+              <button class="btn-action delete" title="Excluir">🗑️</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="font-bold">Carlos Eduardo Lima</td>
+            <td>987.654.321-11</td>
+            <td>(21) 99887-6655</td>
+            <td>Rio de Janeiro / RJ</td>
+            <td><span class="pet-badge">🐾 Nina (Gato)</span>, <span class="pet-badge">🐾 Bob (Cão)</span></td>
+            <td class="actions-cell">
+              <button class="btn-action edit" title="Editar">✏️</button>
+              <button class="btn-action delete" title="Excluir">🗑️</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="font-bold">Mariana Costa</td>
+            <td>456.789.123-22</td>
+            <td>(31) 97654-3210</td>
+            <td>Belo Horizonte / MG</td>
+            <td><span class="pet-badge">🐾 Mel (Gato)</span></td>
+            <td class="actions-cell">
+              <button class="btn-action edit" title="Editar">✏️</button>
+              <button class="btn-action delete" title="Excluir">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Rodapé da Tabela -->
+      <div class="table-pagination">
+        <span>Mostrando 3 de 215 clientes</span>
+        <div class="pagination-buttons">
+          <button disabled>Anterior</button>
+          <button class="active">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>Próximo</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>''

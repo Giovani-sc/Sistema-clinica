@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Login</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="login-body">
+
+  <div class="login-card">
+    <div class="login-header">
+      <img src="clinica.png" alt="ClíníVet Logo" class="login-logo">
+      <h1>ClíníVet</h1>
+      <p>Sistema de Gestão Veterinária</p>
+    </div>
+
+    <form class="login-form">
+      <div class="form-group">
+        <label for="email">E-mail ou Usuário</label>
+        <input type="email" id="email" placeholder="seu.email@clinivet.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="••••••••" required>
+      </div>
+
+      <div class="login-actions">
+        <label class="remember-me">
+          <input type="checkbox" id="remember">
+          Lembrar minha senha
+        </label>
+        <a href="esqueci.html" class="forgot-password">Esqueceu a senha?</a>
+      </div>
+
+      <button type="submit" class="btn-primary">Entrar no Sistema</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
