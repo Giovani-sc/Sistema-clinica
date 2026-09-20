@@ -1,20 +1,41 @@
-CREATE DATABASE cliniVet
+CREATE DATABASE clinivet;
 
-USE cliniVet;
+USE clinivet;
 
 CREATE TABLE cliente (
     id_cliente INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(150) NOT NULL,
-    cpf VARCHAR(11) NULL,
+    cpf VARCHAR(11) NOT NULL,
+    data_nascimento DATE NULL,
+    email VARCHAR(255) NOT NULL,
+    observacoes_gerais VARCHAR(500) NULL,
 
     PRIMARY KEY (id_cliente),
-    UNIQUE (cpf)
+    UNIQUE (cpf),
+    UNIQUE (email)
+);
+
+CREATE TABLE endereco_cliente (
+    id_endereco_cliente INT NOT NULL,
+    cep VARCHAR(8) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
+    numero VARCHAR(25) NOT NULL,
+    complemento VARCHAR(50) NULL,
+    bairro VARCHAR(45) NOT NULL,
+    regiao_administrativa VARCHAR(50) NOT NULL,
+    id_cliente INT NOT NULL,
+
+    PRIMARY KEY (id_endereco_cliente),
+
+    FOREIGN KEY (id_cliente)
+        REFERENCES cliente(id_cliente)
 );
 
 CREATE TABLE telefone_cliente (
     id_telefone_cliente INT NOT NULL AUTO_INCREMENT,
     telefone VARCHAR(20) NOT NULL,
     id_cliente INT NOT NULL,
+    whatsapp TINYINT NOT NULL,
 
     PRIMARY KEY (id_telefone_cliente),
 
@@ -97,6 +118,61 @@ CREATE TABLE consulta (
         REFERENCES animal(id_animal)
 );
 
+CREATE TABLE usuario (
+    id_usuario INT NOT NULL AUTO_INCREMENT,
+    usuario VARCHAR(255) NOT NULL,
+    senha VARCHAR(256) NOT NULL,
+
+    PRIMARY KEY (id_usuario)
+);
+
+CREATE TABLE veterinario (
+    id_veterinario INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(150) NOT NULL,
+    cpf VARCHAR(11) NULL,
+    crmv VARCHAR(45) NULL,
+    salario DECIMAL(10,2) NULL,
+    id_usuario INT NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    data_nascimento DATE NULL,
+
+    PRIMARY KEY (id_veterinario),
+
+    UNIQUE (cpf),
+    UNIQUE (crmv),
+
+    FOREIGN KEY (id_usuario)
+        REFERENCES usuario(id_usuario)
+);
+
+CREATE TABLE endereco_veterinario (
+    id_endereco_veterinario INT NOT NULL,
+    cep VARCHAR(8) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
+    numero VARCHAR(25) NOT NULL,
+    complemento VARCHAR(50) NULL,
+    bairro VARCHAR(45) NOT NULL,
+    regiao_administrativa VARCHAR(50) NOT NULL,
+    id_veterinario INT NOT NULL,
+
+    PRIMARY KEY (id_endereco_veterinario),
+
+    FOREIGN KEY (id_veterinario)
+        REFERENCES veterinario(id_veterinario)
+);
+
+CREATE TABLE telefone_veterinario (
+    id_telefone_veterinario INT NOT NULL AUTO_INCREMENT,
+    telefone VARCHAR(20) NOT NULL,
+    id_veterinario INT NOT NULL,
+	whatsapp TINYINT NOT NULL,
+ 
+    PRIMARY KEY (id_telefone_veterinario),
+
+    FOREIGN KEY (id_veterinario)
+        REFERENCES veterinario(id_veterinario)
+);
+
 CREATE TABLE agendamento_exame (
     id_agendamento_exame INT NOT NULL AUTO_INCREMENT,
     data_hora DATETIME NOT NULL,
@@ -125,48 +201,10 @@ CREATE TABLE agendamento_consulta (
         REFERENCES veterinario(id_veterinario)
 );
 
-
-
-CREATE TABLE veterinario (
-    id_veterinario INT NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(150) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
-    crmv VARCHAR(45) NOT NULL,
-    salario DECIMAL(10, 2),
-    id_usuario INT,
-
-    PRIMARY KEY (id_veterinario),
-
-    UNIQUE (cpf),
-    UNIQUE (crmv),
-
-    FOREIGN KEY (id_usuario)
-        REFERENCES usuario(id_usuario)
-);
-
-CREATE TABLE usuario (
-    id_usuario INT NOT NULL AUTO_INCREMENT,
-    usuario VARCHAR(255) NOT NULL,
-    senha VARCHAR(256) NOT NULL,
-
-    PRIMARY KEY (id_usuario)
-);
-
-CREATE TABLE telefone_veterinario (
-    id_telefone_veterinario INT NOT NULL AUTO_INCREMENT,
-    telefone VARCHAR(20) NOT NULL,
-    id_veterinario INT NOT NULL,
-
-    PRIMARY KEY (id_telefone_veterinario),
-
-    FOREIGN KEY (id_veterinario)
-        REFERENCES veterinario(id_veterinario)
-);
-
 CREATE TABLE gasto_separado (
     id_gasto_separado INT NOT NULL AUTO_INCREMENT,
     motivo VARCHAR(500) NOT NULL,
-    valor INT NOT NULL,
+    valor DECIMAL(10, 2) NOT NULL,
 
     PRIMARY KEY (id_gasto_separado)
 );
@@ -174,10 +212,12 @@ CREATE TABLE gasto_separado (
 CREATE TABLE funcionario (
     id_funcionario INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(150) NOT NULL,
-    tipo TINYINT NOT NULL,
-    salario DECIMAL(10,2),
-    cpf VARCHAR(11) NOT NULL,
+    tipo TINYINT NULL,
+    salario DECIMAL(10,2) NULL,
+    cpf VARCHAR(11) NULL,
     id_usuario INT NOT NULL,
+    email VARCHAR(255) NULL,
+    data_nascimento DATE NULL,
 
     PRIMARY KEY (id_funcionario),
 
@@ -187,13 +227,31 @@ CREATE TABLE funcionario (
         REFERENCES usuario(id_usuario)
 );
 
+CREATE TABLE endereco_funcionario (
+    id_endereco_funcionario INT NOT NULL,
+    cep VARCHAR(8) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
+    numero VARCHAR(25) NOT NULL,
+    complemento VARCHAR(50) NULL,
+    bairro VARCHAR(45) NOT NULL,
+    regiao_administrativa VARCHAR(50) NOT NULL,
+    id_funcionario INT NOT NULL,
+
+    PRIMARY KEY (id_endereco_funcionario),
+
+    FOREIGN KEY (id_funcionario)
+        REFERENCES funcionario(id_funcionario)
+);
+
 CREATE TABLE telefone_funcionario (
     id_telefone_funcionario INT NOT NULL AUTO_INCREMENT,
     telefone VARCHAR(20) NOT NULL,
     id_funcionario INT NOT NULL,
+	whatsapp TINYINT NOT NULL,
 
     PRIMARY KEY (id_telefone_funcionario),
 
     FOREIGN KEY (id_funcionario)
         REFERENCES funcionario(id_funcionario)
 );
+
