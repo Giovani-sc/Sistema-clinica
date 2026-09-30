@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Gestão de Exames</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar Lateral -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="clinica.png" alt="ClíníVet Logo" class="sidebar-logo">
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="./painel.html" class="nav-item">📊 Painel da Clínica</a>
+      <a href="./clientes.html" class="nav-item">👥 Clientes</a>
+      <a href="./funcionarios.html" class="nav-item">🧑‍⚕️ Funcionários</a>
+      <a href="./consultas.html" class="nav-item">📅 Consultas</a>
+      <a href="./exames.html" class="nav-item active">🧪 Exames</a>
+      <a href="./configuracoes.html" class="nav-item">⚙️ Configurações</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="./index.html" class="nav-item logout">🚪 Sair</a>
+    </div>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="main-content">
+    
+    <header class="dashboard-header">
+      <div>
+        <h1>Gestão de Exames</h1>
+        <p class="subtitle">Resultados laboratoriais e laudos laudados — Unidade Brasília / DF</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="user-profile">
+          <div class="avatar">V</div>
+          <div class="user-info">
+            <span class="user-name">Veterinário</span>
+            <span class="user-role">Administrador</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Barra de Ações (Busca + Botão Criar) -->
+    <div class="top-action-bar">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar por id, paciente ou observações...">
+        <button class="search-btn">🔍</button>
+      </div>
+
+      <a href="./novoexame.html" class="btn-novo-cliente" style="text-decoration: none;">+ Novo Exame</a>
+    </div>
+
+    <!-- Tabela de Exames Cadastrados -->
+    <div class="panel-card">
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>ID Exame</th>
+            <th>Paciente (Pet)</th>
+            <th>Observações / Laudo</th>
+            <th>Valor</th>
+            <th>Gasto Insumo</th>
+            <th>Arquivo PDF</th>
+            <th style="text-align: center;">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>#501</strong></td>
+            <td>🐾 Thor (Cão)</td>
+            <td>Hemograma Completo e Bioquímico</td>
+            <td>R$ 120,00</td>
+            <td>R$ 35,00</td>
+            <td><a href="#" style="color: #007bff; text-decoration: none; font-weight: 600;">📄 Baixar PDF</a></td>
+            <td style="text-align: center;">
+              <button style="border: none; background: transparent; cursor: pointer; font-size: 16px;">✏️</button>
+              <button style="border: none; background: transparent; cursor: pointer; font-size: 16px;">🗑️</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#502</strong></td>
+            <td>🐾 Nina (Gato)</td>
+            <td>Ultrassom Abdominal Total</td>
+            <td>R$ 220,00</td>
+            <td>R$ 50,00</td>
+            <td><a href="#" style="color: #007bff; text-decoration: none; font-weight: 600;">📄 Baixar PDF</a></td>
+            <td style="text-align: center;">
+              <button style="border: none; background: transparent; cursor: pointer; font-size: 16px;">✏️</button>
+              <button style="border: none; background: transparent; cursor: pointer; font-size: 16px;">🗑️</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#503</strong></td>
+            <td>🐾 Mel (Gato)</td>
+            <td>Raio-X Coxofemoral</td>
+            <td>R$ 180,00</td>
+            <td>R$ 40,00</td>
+            <td><a href="#" style="color: #007bff; text-decoration: none; font-weight: 600;">📄 Baixar PDF</a></td>
+            <td style="text-align: center;">
+              <button style="border: none; background: transparent; cursor: pointer; font-size: 16px;">✏️</button>
+              <button style="border: none; background: transparent; cursor: pointer; font-size: 16px;">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Rodapé Formatado -->
+      <div class="table-footer">
+        <span>Mostrando 3 exames</span>
+        <div>
+          <button class="pagination-btn">Anterior</button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">Próximo</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

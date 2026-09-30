@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Cadastrar Exame</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar Lateral -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="clinica.png" alt="ClíníVet Logo" class="sidebar-logo">
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="./painel.html" class="nav-item">📊 Painel da Clínica</a>
+      <a href="./clientes.html" class="nav-item">👥 Clientes</a>
+      <a href="./funcionarios.html" class="nav-item">🧑‍⚕️ Funcionários</a>
+      <a href="./consultas.html" class="nav-item">📅 Consultas</a>
+      <a href="./exames.html" class="nav-item">🧪 Exames</a>
+      <a href="./configuracoes.html" class="nav-item">⚙️ Configurações</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="./index.html" class="nav-item logout">🚪 Sair</a>
+    </div>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="main-content">
+    
+    <header class="dashboard-header">
+      <div>
+        <h1>Anexar / Registrar Exame</h1>
+        <p class="subtitle">Insira o laudo e anexe o arquivo PDF para a ficha do paciente</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="user-profile">
+          <div class="avatar">V</div>
+          <div class="user-info">
+            <span class="user-name">Veterinário</span>
+            <span class="user-role">Administrador</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Formulário do Exame -->
+    <div class="panel-card">
+      <form id="formNovoExame" onsubmit="event.preventDefault(); alert('Exame registrado com sucesso!'); window.location.href='./exames.html';">
+        
+        <h3 style="margin-bottom: 20px; color: #1b4332;">Dados do Exame</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
+
+          <!-- Consulta -->
+          <div>
+            <label for="id-consulta" style="display: block; font-weight: 600; margin-bottom: 6px;">Consulta *</label>
+            <input type="number" id="id-consulta" name="id_consulta" required class="search-input" style="width: 100%; box-sizing: border-box;" placeholder="Ex: 101">
+          </div>
+
+          <!-- ID Veterinário -->
+          <div>
+            <label for="id-veterinario" style="display: block; font-weight: 600; margin-bottom: 6px;">ID Veterinário *</label>
+            <input type="number" id="id-veterinario" name="id_veterinario" required class="search-input" style="width: 100%; box-sizing: border-box;" placeholder="Ex: 5">
+          </div>
+
+          <!-- Data e hora -->
+          <div>
+            <label for="data-hora" style="display: block; font-weight: 600; margin-bottom: 6px;">Data e hora *</label>
+            <input type="datetime-local" id="data-hora" name="data_hora" required class="search-input" style="width: 100%; box-sizing: border-box;">
+          </div>
+
+          <!-- Paciente -->
+          <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 6px;">Paciente (Pet) *</label>
+            <select required class="search-input" style="width: 100%; background: #fff;">
+              <option value="">Selecione o animal (id_animal)...</option>
+              <option value="1">Thor - Tutor: Ana Silva Sauro</option>
+              <option value="2">Nina - Tutor: Carlos Eduardo</option>
+              <option value="3">Bob - Tutor: Carlos Eduardo</option>
+              <option value="4">Mel - Tutor: Mariana Costa</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 6px;">Valor Cobrado (R$) *</label>
+            <input type="number" step="0.01" required class="search-input" style="width: 100%;" placeholder="0.00">
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 6px;">Gasto com Insumos (R$)</label>
+            <input type="number" step="0.01" class="search-input" style="width: 100%;" placeholder="0.00">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-weight: 600; margin-bottom: 6px;">Arquivo do Exame (PDF/PNG) *</label>
+          <input type="file" accept="application/pdf" required class="search-input" style="width: 100%; background: #fff;">
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-weight: 600; margin-bottom: 6px;">Observações / Resumo do Laudo</label>
+          <textarea class="search-input" style="width: 100%; height: 100px; resize: vertical;" placeholder="Escreva observações clínicas ou o resumo do laudo do exame..."></textarea>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+          <a href="./exames.html" style="padding: 10px 20px; border: 1px solid #cbd5e1; border-radius: 8px; text-decoration: none; color: #475569; font-weight: 600;">Cancelar</a>
+          <button type="submit" class="btn-novo-cliente" style="border: none; cursor: pointer;">Salvar Exame</button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

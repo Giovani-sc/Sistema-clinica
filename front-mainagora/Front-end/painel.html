@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Painel da Clínica</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body class="dashboard-body">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <div class="logo-container">
+      <img src="clinica.png" alt="ClíníVet Logo" class="sidebar-logo">
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <a href="./painel.html" class="nav-item active">
+        📊 Painel da Clínica
+      </a>
+
+      <a href="./clientes.html" class="nav-item">
+        👥 Clientes
+      </a>
+
+      <a href="./funcionarios.html" class="nav-item">
+        🧑‍⚕️ Funcionários
+      </a>
+
+      <a href="./consultas.html" class="nav-item">
+        📅 Consultas
+      </a>
+
+      <!-- EXAMES -->
+      <a href="./exames.html" class="nav-item">
+        🧪 Exames
+      </a>
+
+      <a href="#" class="nav-item">
+        ⚙️ Configurações
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="./index.html" class="nav-item logout">
+        🚪 Sair
+      </a>
+    </div>
+
+  </aside>
+
+
+  <!-- Conteúdo -->
+  <main class="main-content">
+
+    <!-- Cabeçalho -->
+    <header class="dashboard-header">
+
+      <div>
+        <h1>Painel da Clínica</h1>
+
+        <p class="subtitle">
+          Olá, ADM! 👋 Veja o resumo da sua clínica hoje.
+        </p>
+      </div>
+
+      <div class="header-actions">
+
+        <div class="user-profile">
+
+          <div class="avatar">
+            V
+          </div>
+
+          <div class="user-info">
+            <span class="user-name">
+              Veterinário
+            </span>
+
+            <span class="user-role">
+              Administrador
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- BOTÕES -->
+    <div class="top-action-bar">
+
+      <a
+        href="./novo-cliente.html"
+        class="btn-novo-cliente"
+      >
+        + Novo Cliente
+      </a>
+
+      <a
+        href="./nova-consulta.html"
+        class="btn-novo-cliente"
+      >
+        + Nova Consulta
+      </a>
+
+    </div>
+
+
+    <!-- MÉTRICAS -->
+    <div class="metrics-grid">
+
+      <a
+        href="./clientes.html"
+        class="stat-card-link"
+        style="text-decoration: none; color: inherit;"
+      >
+
+        <div class="metric-card">
+
+          <div>
+            <span class="metric-title">
+              Clientes cadastrados
+            </span>
+
+            <h2>215</h2>
+
+            <span class="metric-sub">
+              Total de clientes
+            </span>
+          </div>
+
+          <div class="metric-icon">
+            👥
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <a
+        href="./funcionarios.html"
+        class="stat-card-link"
+        style="text-decoration: none; color: inherit;"
+      >
+
+        <div class="metric-card">
+
+          <div>
+            <span class="metric-title">
+              Equipe & Médicos
+            </span>
+
+            <h2>12</h2>
+
+            <span class="metric-sub">
+              Funcionários ativos
+            </span>
+          </div>
+
+          <div class="metric-icon">
+            🧑‍⚕️
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <a
+        href="./consultas.html"
+        class="stat-card-link"
+        style="text-decoration: none; color: inherit;"
+      >
+
+        <div class="metric-card">
+
+          <div>
+            <span class="metric-title">
+              Consultas hoje
+            </span>
+
+            <h2>12</h2>
+
+            <span class="metric-sub">
+              Consultas agendadas
+            </span>
+          </div>
+
+          <div class="metric-icon">
+            📅
+          </div>
+
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- AGENDA -->
+    <div class="dashboard-grid">
+
+      <div class="panel-card agenda-card">
+
+        <h3>
+          Agenda de hoje
+        </h3>
+
+        <table class="agenda-table">
+
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Horário</th>
+              <th>Paciente</th>
+              <th>Veterinário</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td><strong>#101</strong></td>
+              <td class="time">09:00</td>
+              <td class="patient">Thor</td>
+              <td class="doctor">Dr. Lucas Almeida</td>
+              <td>
+                <span class="status-tag status-finalizada">
+                  Finalizada
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>#102</strong></td>
+              <td class="time">10:30</td>
+              <td class="patient">Nina</td>
+              <td class="doctor">Dra. Ana Beatriz</td>
+              <td>
+                <span class="status-tag status-andamento">
+                  Em andamento
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>#103</strong></td>
+              <td class="time">14:00</td>
+              <td class="patient">Bob</td>
+              <td class="doctor">Dr. Carlos Eduardo</td>
+              <td>
+                <span class="status-tag status-agendada">
+                  Agendada
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>#104</strong></td>
+              <td class="time">15:30</td>
+              <td class="patient">Luna</td>
+              <td class="doctor">Dr. Lucas Almeida</td>
+              <td>
+                <span class="status-tag status-agendada">
+                  Agendada
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <!-- RESUMO -->
+      <div class="panel-card chart-card">
+
+        <h3>
+          Resumo dos Atendimentos
+        </h3>
+
+        <ul
+          class="chart-legend"
+          style="margin-top: 20px;"
+        >
+
+          <li
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 12px;
+            "
+          >
+            <span class="legend-text">
+              🟢 Agendadas
+            </span>
+
+            <strong class="legend-value">
+              5
+            </strong>
+          </li>
+
+
+          <li
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 12px;
+            "
+          >
+            <span class="legend-text">
+              🟡 Em andamento
+            </span>
+
+            <strong class="legend-value">
+              4
+            </strong>
+          </li>
+
+
+          <li
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 12px;
+            "
+          >
+            <span class="legend-text">
+              🔵 Finalizadas
+            </span>
+
+            <strong class="legend-value">
+              3
+            </strong>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
