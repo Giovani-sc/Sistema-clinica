@@ -2,11 +2,9 @@ CREATE DATABASE clinivet;
 
 USE clinivet;
 
-DROP DATABASE clinivet;
-
 CREATE TABLE usuario (
     id_usuario INT NOT NULL AUTO_INCREMENT,
-    usuario VARCHAR(255) NOT NULL,
+    usuario VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(256) NOT NULL,
 
     PRIMARY KEY (id_usuario)
@@ -17,7 +15,7 @@ CREATE TABLE cliente (
     nome VARCHAR(150) NOT NULL,
     cpf VARCHAR(11) NOT NULL,
     data_nascimento DATE,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     observacoes_gerais VARCHAR(500),
 
     PRIMARY KEY (id_cliente),
@@ -86,11 +84,11 @@ CREATE TABLE animal (
 CREATE TABLE veterinario (
     id_veterinario INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(150) NOT NULL,
-    cpf VARCHAR(11),
-    crmv VARCHAR(45),
+    cpf VARCHAR(11) NOT NULL,
+    crmv VARCHAR(45) NOT NULL,
     salario DECIMAL(10,2),
     id_usuario INT NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     data_nascimento DATE,
 
     PRIMARY KEY (id_veterinario),
@@ -162,7 +160,7 @@ CREATE TABLE endereco_veterinario (
     cep VARCHAR(8) NOT NULL,
     endereco VARCHAR(100) NOT NULL,
     numero VARCHAR(25) NOT NULL,
-    complemento VARCHAR(50) NULL,
+    complemento VARCHAR(50),
     bairro VARCHAR(45) NOT NULL,
     regiao_administrativa VARCHAR(50) NOT NULL,
     id_veterinario INT NOT NULL,
@@ -216,12 +214,12 @@ CREATE TABLE agendamento_consulta (
 CREATE TABLE funcionario (
     id_funcionario INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(150) NOT NULL,
-    tipo TINYINT NULL,
+    tipo TINYINT,
     salario DECIMAL(10,2),
     cpf VARCHAR(11) NOT NULL,
     id_usuario INT NOT NULL,
-    email VARCHAR(255),
-    data_nascimento DATE NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    data_nascimento DATE,
 
     PRIMARY KEY (id_funcionario),
 
@@ -258,4 +256,3 @@ CREATE TABLE telefone_funcionario (
     FOREIGN KEY (id_funcionario)
         REFERENCES funcionario(id_funcionario)
 );
-
