@@ -2,13 +2,23 @@ CREATE DATABASE clinivet;
 
 USE clinivet;
 
+DROP DATABASE clinivet;
+
+CREATE TABLE usuario (
+    id_usuario INT NOT NULL AUTO_INCREMENT,
+    usuario VARCHAR(255) NOT NULL,
+    senha VARCHAR(256) NOT NULL,
+
+    PRIMARY KEY (id_usuario)
+);
+
 CREATE TABLE cliente (
     id_cliente INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(150) NOT NULL,
     cpf VARCHAR(11) NOT NULL,
-    data_nascimento DATE NULL,
+    data_nascimento DATE,
     email VARCHAR(255) NOT NULL,
-    observacoes_gerais VARCHAR(500) NULL,
+    observacoes_gerais VARCHAR(500),
 
     PRIMARY KEY (id_cliente),
     UNIQUE (cpf),
@@ -20,7 +30,7 @@ CREATE TABLE endereco_cliente (
     cep VARCHAR(8) NOT NULL,
     endereco VARCHAR(100) NOT NULL,
     numero VARCHAR(25) NOT NULL,
-    complemento VARCHAR(50) NULL,
+    complemento VARCHAR(50),
     bairro VARCHAR(45) NOT NULL,
     regiao_administrativa VARCHAR(50) NOT NULL,
     id_cliente INT NOT NULL,
@@ -73,18 +83,42 @@ CREATE TABLE animal (
         REFERENCES cliente(id_cliente)
 );
 
+CREATE TABLE veterinario (
+    id_veterinario INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(150) NOT NULL,
+    cpf VARCHAR(11),
+    crmv VARCHAR(45),
+    salario DECIMAL(10,2),
+    id_usuario INT NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    data_nascimento DATE,
+
+    PRIMARY KEY (id_veterinario),
+
+    UNIQUE (cpf),
+    UNIQUE (crmv),
+
+    FOREIGN KEY (id_usuario)
+        REFERENCES usuario(id_usuario)
+);
+
 CREATE TABLE exame (
     id_exame INT NOT NULL AUTO_INCREMENT,
     exame_pdf LONGBLOB NOT NULL,
     observacoes TEXT,
-    valor DECIMAL(10, 2) NOT NULL,
-    gasto DECIMAL(10, 2),
+    valor DECIMAL(10,2),
+    gasto DECIMAL(10,2),
     id_animal INT NOT NULL,
+    data_hora DATETIME NOT NULL,
+    id_veterinario INT NOT NULL,
 
     PRIMARY KEY (id_exame),
 
     FOREIGN KEY (id_animal)
-        REFERENCES animal(id_animal)
+        REFERENCES animal(id_animal),
+
+    FOREIGN KEY (id_veterinario)
+        REFERENCES veterinario(id_veterinario)
 );
 
 CREATE TABLE servico (
@@ -104,45 +138,23 @@ CREATE TABLE consulta (
     id_consulta INT NOT NULL AUTO_INCREMENT,
     motivo VARCHAR(500) NOT NULL,
     anamnese TEXT,
-    diagnostico TEXT,
-    tratamento TEXT,
+    diagnostico TEXT NOT NULL,
+    tratamento TEXT NOT NULL,
     observacoes TEXT,
     tipo VARCHAR(100),
-    valor DECIMAL(10, 2) NOT NULL,
-    gasto DECIMAL(10, 2),
+    valor DECIMAL,
+    gasto DECIMAL,
     id_animal INT NOT NULL,
+    data_hora DATETIME,
+    id_veterinario INT NOT NULL,
 
     PRIMARY KEY (id_consulta),
 
     FOREIGN KEY (id_animal)
-        REFERENCES animal(id_animal)
-);
+        REFERENCES animal(id_animal),
 
-CREATE TABLE usuario (
-    id_usuario INT NOT NULL AUTO_INCREMENT,
-    usuario VARCHAR(255) NOT NULL,
-    senha VARCHAR(256) NOT NULL,
-
-    PRIMARY KEY (id_usuario)
-);
-
-CREATE TABLE veterinario (
-    id_veterinario INT NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(150) NOT NULL,
-    cpf VARCHAR(11) NULL,
-    crmv VARCHAR(45) NULL,
-    salario DECIMAL(10,2) NULL,
-    id_usuario INT NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    data_nascimento DATE NULL,
-
-    PRIMARY KEY (id_veterinario),
-
-    UNIQUE (cpf),
-    UNIQUE (crmv),
-
-    FOREIGN KEY (id_usuario)
-        REFERENCES usuario(id_usuario)
+    FOREIGN KEY (id_veterinario)
+        REFERENCES veterinario(id_veterinario)
 );
 
 CREATE TABLE endereco_veterinario (
@@ -177,7 +189,7 @@ CREATE TABLE agendamento_exame (
     id_agendamento_exame INT NOT NULL AUTO_INCREMENT,
     data_hora DATETIME NOT NULL,
     status ENUM('cancelada', 'pendente', 'concluida') NOT NULL,
-    observacoes TEXT NULL,
+    observacoes TEXT,
     id_veterinario INT NOT NULL,
     tipo_exame VARCHAR(500) NOT NULL,
 
@@ -191,7 +203,7 @@ CREATE TABLE agendamento_consulta (
     id_agendamento_consulta INT NOT NULL AUTO_INCREMENT,
     data_hora DATETIME NOT NULL,
     status ENUM('cancelada', 'pendente', 'concluida') NOT NULL,
-    observacoes TEXT NULL,
+    observacoes TEXT,
     id_veterinario INT NOT NULL,
     tipo_consulta VARCHAR(500) NOT NULL,
 
@@ -201,22 +213,14 @@ CREATE TABLE agendamento_consulta (
         REFERENCES veterinario(id_veterinario)
 );
 
-CREATE TABLE gasto_separado (
-    id_gasto_separado INT NOT NULL AUTO_INCREMENT,
-    motivo VARCHAR(500) NOT NULL,
-    valor DECIMAL(10, 2) NOT NULL,
-
-    PRIMARY KEY (id_gasto_separado)
-);
-
 CREATE TABLE funcionario (
     id_funcionario INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(150) NOT NULL,
     tipo TINYINT NULL,
-    salario DECIMAL(10,2) NULL,
-    cpf VARCHAR(11) NULL,
+    salario DECIMAL(10,2),
+    cpf VARCHAR(11) NOT NULL,
     id_usuario INT NOT NULL,
-    email VARCHAR(255) NULL,
+    email VARCHAR(255),
     data_nascimento DATE NULL,
 
     PRIMARY KEY (id_funcionario),
@@ -232,7 +236,7 @@ CREATE TABLE endereco_funcionario (
     cep VARCHAR(8) NOT NULL,
     endereco VARCHAR(100) NOT NULL,
     numero VARCHAR(25) NOT NULL,
-    complemento VARCHAR(50) NULL,
+    complemento VARCHAR(50),
     bairro VARCHAR(45) NOT NULL,
     regiao_administrativa VARCHAR(50) NOT NULL,
     id_funcionario INT NOT NULL,
