@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Contate o ADM</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="login-body">
+
+  <div class="login-card">
+    <div class="login-header">
+      <img src="clinica.png" alt="ClíníVet Logo" class="login-logo">
+      <h1>Contate o ADM</h1>
+      <p>Se identifique com seus dados abaixo</p>
+    </div>
+
+    <form class="login-form" id="form-contato-adm">
+      <div class="form-group">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" placeholder="Digite seu nome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="funcao">Função / Cargo</label>
+        <input type="text" id="funcao" placeholder="Ex: Veterinário, Recepção" required>
+      </div>
+
+      <div class="form-group">
+        <label for="usuario">Nome de usuário</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário" required>
+      </div>
+
+      <button type="submit" class="btn-primary" style="margin-top: 10px;">ENVIAR</button>
+
+      <!-- Mensagem de Sucesso -->
+      <div id="mensagem-sucesso" class="feedback-sucesso hidden">
+        Sua mensagem foi enviada!
+      </div>
+
+      <!-- Botão Voltar para o Login -->
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="index.html" class="forgot-password">Voltar para o Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

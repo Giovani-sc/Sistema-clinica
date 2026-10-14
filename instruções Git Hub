@@ -1,0 +1,24 @@
+Guia básico pra usar o GitHub
+
+O GitHub vai ser usado usando o terminal do VScode, abra o terminal na pasta Sistema Interno-Clínica Veteinária
+na sua primeira vez entrando no projeto você vai usar o comando git clone para criar um clone do código no seu 
+pc
+
+"git clone" (aqui você coloca o link do projeto que está no GitHub em https)
+
+!!IMPORTANTE!!
+
+--->use: "git pull origin main"  sempre antes de fazer alguma alteração (isso puxa as atualizações do GitHub se você não puxar você pode trabalhar em uma versão desatualizada e ferrar tudo)
+
+--->use: "git status" pra ver o que foi alterado
+
+--->use: "git add ." vai selecionar tudo pra salvar no commit (em frases mais longas, git add . adiciona todos os arquivos, GitHub não salva automaticamente então é preciso fazer isso)
+
+--->use: "git commit -m "commit taltaltal"" vai enviar o que foi selecionado pro commit (o commit basicamente serve pra salvar as alterações, ele salva o que foi mudado, quando foi mudado e quem mudou e a mensagem entre parênteses é só uma pequena descrição do que você alterou ex: "melhoria na interface login")
+
+--->use: "git push origin main" envia o commit pros outros, sem ele o commit fica visivel só pra você
+
+
+!!EXPLICAÇÃO MUUUUITO SIMPLES!!
+
+caso tenha ficado meio confuso, git clone baixa o código. Com git pull você pega o trabalho que seus colegas enviaram, com git status você vê o que eles mudaram, com git add . você pega todos os arquivos e as alterações que você fez, aí você usa o git commit e guarda esses arquivos numa caixa, o commit, por fim você usa o git push e envia a "caixa" pros outros

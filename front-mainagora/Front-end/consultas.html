@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Gestão de Consultas</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body class="dashboard-body">
+
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="clinica.png" alt="ClíníVet Logo" class="sidebar-logo">
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="./painel.html" class="nav-item">📊 Painel da Clínica</a>
+      <a href="./clientes.html" class="nav-item">👥 Clientes</a>
+      <a href="./funcionarios.html" class="nav-item">🧑‍⚕️ Funcionários</a>
+      <a href="./consultas.html" class="nav-item active">📅 Consultas</a>
+      <a href="./exames.html" class="nav-item">
+        🧪 Exames
+      </a>
+      <a href="./configuracoes.html" class="nav-item">⚙️ Configurações</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="./index.html" class="nav-item logout">🚪 Sair</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    
+    <header class="dashboard-header">
+      <div>
+        <h1>Gestão de Consultas</h1>
+        <p class="subtitle">Historico e agendamentos médicos — Unidade Brasília / DF</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="user-profile">
+          <div class="avatar">V</div>
+          <div class="user-info">
+            <span class="user-name">Veterinário</span>
+            <span class="user-role">Administrador</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="top-action-bar">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar por paciente, motivo ou tipo...">
+        <button class="search-btn">🔍</button>
+      </div>
+
+      <a href="./nova-consulta.html" class="btn-novo-cliente" style="text-decoration: none;">+ Nova Consulta</a>
+    </div>
+
+    <div class="panel-card">
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Paciente (Pet)</th>
+            <th>Tipo</th>
+            <th>Motivo</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th style="text-align: center;">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>#101</strong></td>
+            <td>🐾 Thor (Cão)</td>
+            <td>Rotina</td>
+            <td>Vacinação Anual e Check-up</td>
+            <td>R$ 180,00</td>
+            <td><span class="status-tag status-finalizada">Finalizada</span></td>
+            <td style="text-align: center;">
+              <button style="border: none; background: transparent; cursor: pointer;">📋</button>
+              <button style="border: none; background: transparent; cursor: pointer;">✏️</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#102</strong></td>
+            <td>🐾 Nina (Gato)</td>
+            <td>Emergência</td>
+            <td>Prostração e falta de apetite</td>
+            <td>R$ 250,00</td>
+            <td><span class="status-tag status-andamento">Em andamento</span></td>
+            <td style="text-align: center;">
+              <button style="border: none; background: transparent; cursor: pointer;">📋</button>
+              <button style="border: none; background: transparent; cursor: pointer;">✏️</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#103</strong></td>
+            <td>🐾 Bob (Cão)</td>
+            <td>Retorno</td>
+            <td>Avaliação pós-operatória</td>
+            <td>R$ 0,00</td>
+            <td><span class="status-tag status-agendada">Agendada</span></td>
+            <td style="text-align: center;">
+              <button style="border: none; background: transparent; cursor: pointer;">📋</button>
+              <button style="border: none; background: transparent; cursor: pointer;">✏️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="table-footer">
+        <span>Mostrando 3 consultas</span>
+        <div>
+          <button class="pagination-btn">Anterior</button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">Próximo</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

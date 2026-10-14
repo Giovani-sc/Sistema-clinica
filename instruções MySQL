@@ -1,0 +1,23 @@
+A conexão com o MySQL JÁ ESTÁ FEITA, MAS o banco de dados fica localmente na máquina, então é individual e pra funcionar voccê deve criar o banco na sua máquina
+
+para isso use o arquivo clinivet.sql ele contem o modelo lógico do mysql, você deve copiar ele e colar no mysql
+
+!!!MAS ANTES SE ATENTE A ALGUMAS COISAS!!!
+
+na hora de criar o schema no MySQL você deve guardar 3 informações
+
+1-o local onde esttá o banco, normalmente localhost: 3306
+2-o usuário, normalmmente root
+3-a senha do mysql
+
+ATENTE-SE QUE SE VOCÊ NÃO SOUBER SUA SENHA DO MYSQL VOCÊ VAI PRECISAR DESINSTTALAR O MYSQL E INSTALAR DE NOVO
+
+isso acontece porque no serpro o mysql sempre vem instalado
+
+
+DEPOIS QUE VOCÊ CRIAR O BANCO!!!
+
+você deve ir na pasta "src" -> "main" -> "resources" -> application.properties
+
+lá você vai te que colocar as informaç~ões ditas anteriormente
+

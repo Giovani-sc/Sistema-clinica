@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClíníVet - Configurações</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body class="dashboard-body">
+
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="clinica.png" alt="ClíníVet Logo" class="sidebar-logo">
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="./painel.html" class="nav-item">📊 Painel da Clínica</a>
+      <a href="./clientes.html" class="nav-item">👥 Clientes</a>
+      <a href="./funcionarios.html" class="nav-item">🧑‍⚕️ Funcionários</a>
+      <a href="./consultas.html" class="nav-item">📅 Consultas</a>
+      <a href="./exames.html" class="nav-item">🧪 Exames</a>
+      <a href="./configuracoes.html" class="nav-item active">⚙️ Configurações</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="./index.html" class="nav-item logout">🚪 Sair</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="dashboard-header">
+      <div>
+        <h1>Configurações</h1>
+        <p class="subtitle">Gerencie as informações da clínica e as preferências do sistema.</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="user-profile">
+          <div class="avatar">V</div>
+          <div class="user-info">
+            <span class="user-name">Veterinário</span>
+            <span class="user-role">Administrador</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="settings-grid">
+      <section class="panel-card settings-card">
+        <div class="settings-title">
+          <div class="settings-icon">🏥</div>
+          <div>
+            <h3>Dados da Clínica</h3>
+            <p>Atualize as informações principais da clínica.</p>
+          </div>
+        </div>
+
+        <div class="settings-form-grid">
+          <div class="settings-field">
+            <label for="nomeClinica">Nome da clínica</label>
+            <input id="nomeClinica" type="text" value="ClíníVet">
+          </div>
+
+          <div class="settings-field">
+            <label for="telefoneClinica">Telefone</label>
+            <input id="telefoneClinica" type="text" value="(61) 3333-4444">
+          </div>
+
+          <div class="settings-field">
+            <label for="emailClinica">E-mail</label>
+            <input id="emailClinica" type="email" value="contato@clinivet.com.br">
+          </div>
+
+          <div class="settings-field">
+            <label for="cidadeClinica">Cidade / UF</label>
+            <input id="cidadeClinica" type="text" value="Brasília / DF">
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-card settings-card">
+        <div class="settings-title">
+          <div class="settings-icon">👤</div>
+          <div>
+            <h3>Perfil do Administrador</h3>
+            <p>Informações utilizadas para identificar o administrador.</p>
+          </div>
+        </div>
+
+        <div class="settings-form-grid">
+          <div class="settings-field">
+            <label for="nomeAdmin">Nome</label>
+            <input id="nomeAdmin" type="text" value="Veterinário">
+          </div>
+
+          <div class="settings-field">
+            <label for="emailAdmin">E-mail</label>
+            <input id="emailAdmin" type="email" value="admin@clinivet.com.br">
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-card settings-card">
+        <div class="settings-title">
+          <div class="settings-icon">🔔</div>
+          <div>
+            <h3>Preferências</h3>
+            <p>Escolha como o sistema deve se comportar.</p>
+          </div>
+        </div>
+
+        <label class="settings-switch-row">
+          <span>
+            <strong>Notificações de consultas</strong>
+            <small>Receber avisos sobre consultas agendadas.</small>
+          </span>
+          <input id="notificacoesConsultas" type="checkbox" checked>
+        </label>
+
+        <label class="settings-switch-row">
+          <span>
+            <strong>Atualizações do sistema</strong>
+            <small>Receber informações sobre atualizações do ClíníVet.</small>
+          </span>
+          <input id="atualizacoesSistema" type="checkbox" checked>
+        </label>
+      </section>
+
+      <section class="panel-card settings-card">
+        <div class="settings-title">
+          <div class="settings-icon">🔒</div>
+          <div>
+            <h3>Segurança</h3>
+            <p>Gerencie a senha de acesso ao sistema.</p>
+          </div>
+        </div>
+
+        <div class="settings-form-grid">
+          <div class="settings-field">
+            <label for="senhaAtual">Senha atual</label>
+            <input id="senhaAtual" type="password" placeholder="Digite a senha atual">
+          </div>
+
+          <div class="settings-field">
+            <label for="novaSenha">Nova senha</label>
+            <input id="novaSenha" type="password" placeholder="Digite a nova senha">
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="settings-actions">
+      <span id="settingsFeedback" class="settings-feedback"></span>
+      <button id="btnSalvarConfiguracoes" class="btn-novo-cliente" type="button">
+        Salvar alterações
+      </button>
+    </div>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'clinivet_configuracoes';
+
+    const campos = [
+      'nomeClinica',
+      'telefoneClinica',
+      'emailClinica',
+      'cidadeClinica',
+      'nomeAdmin',
+      'emailAdmin',
+      'notificacoesConsultas',
+      'atualizacoesSistema'
+    ];
+
+    function carregarConfiguracoes() {
+      const dados = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+      campos.forEach(id => {
+        const elemento = document.getElementById(id);
+        if (dados[id] === undefined) return;
+
+        if (elemento.type === 'checkbox') {
+          elemento.checked = dados[id];
+        } else {
+          elemento.value = dados[id];
+        }
+      });
+    }
+
+    document.getElementById('btnSalvarConfiguracoes').addEventListener('click', () => {
+      const dados = {};
+
+      campos.forEach(id => {
+        const elemento = document.getElementById(id);
+        dados[id] = elemento.type === 'checkbox'
+          ? elemento.checked
+          : elemento.value;
+      });
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
+
+      const feedback = document.getElementById('settingsFeedback');
+      feedback.textContent = 'Configurações salvas com sucesso!';
+      feedback.classList.add('show');
+
+      setTimeout(() => {
+        feedback.classList.remove('show');
+      }, 3000);
+    });
+
+    carregarConfiguracoes();
+  </script>
+</body>
+</html>
