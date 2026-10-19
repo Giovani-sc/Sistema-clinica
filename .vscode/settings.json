@@ -14,5 +14,6 @@
             "database": "MySQL",
             "username": "root"
         }
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

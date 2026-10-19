@@ -845,3 +845,30 @@ body {
     text-align: center;
   }
 }
+
+.btn-primary,
+.btn-novo-cliente,
+.btn-save-client {
+  background-color: #1b3b1a;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-novo-cliente:hover,
+.btn-save-client:hover {
+  background-color: #264a2a;
+}
